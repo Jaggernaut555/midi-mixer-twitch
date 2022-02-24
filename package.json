@@ -1,6 +1,6 @@
 {
   "name": "ca.jaggernaut.midi-mixer.twitch",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": true,
   "description": "A Twitch plugin for MIDI Mixer.",
   "files": [
