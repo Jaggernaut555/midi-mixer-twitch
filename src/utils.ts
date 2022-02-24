@@ -56,6 +56,7 @@ export async function initButtons(apiClient: ApiClient, chatClient: ChatClient, 
     catch (err) {
       console.log(err);
       log.error(err);
+      $MM.showNotification("Could not create clip");
     }
   });
 
@@ -72,6 +73,7 @@ export async function initButtons(apiClient: ApiClient, chatClient: ChatClient, 
       catch (err) {
         console.log(err);
         log.error(err);
+        $MM.showNotification(`Could not run ${i}s ad`);
       }
     })
   }
