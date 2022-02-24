@@ -5,10 +5,6 @@ import { Assignment, ButtonType } from "midi-mixer-plugin";
 import { initLoginServer } from "./twitch-login";
 import { initButtons, initChatClient } from './utils';
 
-let clientId = "";
-let clientSecret = "";
-let accessToken = "";
-let refreshToken = "";
 let tokenData: AccessToken;
 let settings: Record<string, any>;
 let authProvider: RefreshingAuthProvider;
@@ -22,10 +18,10 @@ $MM.onSettingsButtonPress("runLogin", () => {
 
 async function init() {
   settings = await $MM.getSettings();
-  clientId = settings["ClientID"];
-  clientSecret = settings["ClientSecret"];
-  accessToken = settings["AccessToken"];
-  refreshToken = settings["RefreshToken"];
+  let clientId = settings["ClientID"];
+  let clientSecret = settings["ClientSecret"];
+  let accessToken = settings["AccessToken"];
+  let refreshToken = settings["RefreshToken"];
 
   if (!clientId || !clientSecret) {
     log.error("Cannot function without client ID or Secret");
