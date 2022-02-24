@@ -9,8 +9,6 @@ To install without compiling from source, download the [.midiMixerPlugin from th
 
 # Setting up this plugin
 
-You can open up these steps in a web browser [on the github repo](https://github.com/Jaggernaut555/midi-mixer-twitch/blob/main/README.md#setting-up-this-plugin)
-
 1. Log in to the [Twitch developers dashboard](https://dev.twitch.tv/)
 2. Click on `Your Console` in the top right
 3. Click `Register Your Application`. Enter `Midi Mixer Plugin` as the name, though it can be anything
