@@ -43,7 +43,8 @@ export async function initButtons(apiClient: ApiClient, chatClient: ChatClient, 
   console.log("Initializing buttons");
 
   const clipButton = new ButtonType("ClipButton", {
-    name: "Clip and post in chat"
+    name: "Clip and post in chat",
+    active: true
   });
 
   clipButton.on("pressed", async () => {
