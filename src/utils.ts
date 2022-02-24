@@ -2,6 +2,7 @@ import { ChatClient } from "@twurple/chat";
 import { RefreshingAuthProvider } from "@twurple/auth";
 import { ApiClient, CommercialLength, HelixPrivilegedUser } from "@twurple/api";
 import { ButtonType } from "midi-mixer-plugin";
+import { updateChatClient } from ".";
 
 export async function initChatClient(authProvider: RefreshingAuthProvider, currentUser: HelixPrivilegedUser) {
 
@@ -21,13 +22,15 @@ export async function initChatClient(authProvider: RefreshingAuthProvider, curre
     console.log("registered");
   });
 
-  chatClient.onDisconnect((manual, reason) => {
+  chatClient.onDisconnect(async (manual, reason) => {
     console.log("disconnected");
     if (!manual) {
       console.log(`ChatClient disconnected unexpectedly: ${reason}`);
       log.error(`ChatClient disconnected unexpectedly: ${reason}`);
 
-      initChatClient(authProvider, currentUser);
+      // On disconnect, re-setup all the buttons to use a new chat client
+      let client = await initChatClient(authProvider, currentUser);
+      updateChatClient(client);
     }
   });
 

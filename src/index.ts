@@ -16,6 +16,11 @@ $MM.onSettingsButtonPress("runLogin", () => {
   initLoginServer();
 })
 
+export function updateChatClient(client: ChatClient){
+  chatClient = client;
+  initButtons(apiClient, chatClient, currentUser);
+}
+
 async function init() {
   settings = await $MM.getSettings();
   let clientId = settings["ClientID"];
